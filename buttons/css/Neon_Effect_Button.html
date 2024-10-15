@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Effect Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+            font-family: Arial, sans-serif;
+        }
+
+        .neon-button {
+            padding: 15px 30px;
+            font-size: 20px;
+            color: #fff;
+            background-color: #1c1c1c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .neon-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #0ff, #f0f, #ff0);
+            filter: blur(20px);
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .neon-button.active:before {
+            opacity: 1;
+        }
+
+        .neon-button.active {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="neon-button" id="neonButton">Click Me</button>
+
+    <script>
+        const button = document.getElementById('neonButton');
+
+        button.addEventListener('mousedown', () => {
+            button.classList.add('active');
+        });
+
+        button.addEventListener('mouseup', () => {
+            button.classList.remove('active');
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>
