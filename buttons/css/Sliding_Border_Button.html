@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Border Button</title>
+    <style>
+        .slide-button {
+            font-size: 16px;
+            padding: 10px 30px;
+            background-color: transparent;
+            color: #333;
+            border: 2px solid #333;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .slide-button::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            z-index: -1;
+            transition: 0.3s;
+        }
+
+        .slide-button:hover::before {
+            top: 0;
+        }
+
+        .slide-button:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <button class="slide-button">Slide Border</button>
+</body>
+</html>
